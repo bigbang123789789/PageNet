@@ -232,11 +232,11 @@ class PageDecoder(object):
 
     def find_next(self, cors, pred_read, conf):
         n_samples = len(cors)
-        unfound = np.ones(n_samples).astype(np.bool)
-        uncycle = np.ones(n_samples).astype(np.bool)
-        reach_border = np.zeros(n_samples).astype(np.bool)
+        unfound = np.ones(n_samples).astype(np.bool_)
+        uncycle = np.ones(n_samples).astype(np.bool_)
+        reach_border = np.zeros(n_samples).astype(np.bool_)
         next_indies = np.ones(n_samples).astype(np.int32) * -1
-        paths = np.ones((self.max_steps+1, n_samples, 2)).astype(np.int) * -1
+        paths = np.ones((self.max_steps+1, n_samples, 2)).astype(np.int64) * -1
         paths[0, :, :] = cors 
         pred_dir = np.argsort(pred_read, -1)[:, :, ::-1]
         for s_i in range(self.max_steps):
